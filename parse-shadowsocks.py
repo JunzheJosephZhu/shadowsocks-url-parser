@@ -14,6 +14,7 @@ def create_config_file(method, password, server, port, config_id):
     config = {
         "server": server,
         "server_port": int(port),
+        "local_address": "0.0.0.0",
         "local_port": 1080,
         "password": password,
         "timeout": 300,
