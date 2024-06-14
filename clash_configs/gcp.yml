@@ -164,8 +164,8 @@ proxy-groups:
 - name: "Final"
   type: select
   proxies:
-    - "DIRECT"
     - "PROXY"
+    - "DIRECT"
 
 # Apple 服务代理
 - name: "Apple"
