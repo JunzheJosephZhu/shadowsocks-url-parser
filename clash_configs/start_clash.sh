@@ -1,4 +1,4 @@
-mkdir -p ~/.clash
+# mkdir -p ~/.clash
 # ln -s ./clash_configs/config.yaml ~/.clash/config.yaml
 # ln -s ./clash_configs/gcp.yaml ~/.clash/gcp.yaml
 # ln -s ./clash_configs/Country.mmdb ~/.clash/Country.mmdb
