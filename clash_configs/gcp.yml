@@ -121,10 +121,10 @@ proxy-groups:
     - "vpn-taiwan-trojan-Vm"
     - "vpn-taiwan-trojan-Tr"
     - "vpn-taiwan-trojan-Sh"
-    - "hk"
-    - "taiwan"
-    - "singapore"
-    - "tokyo"
+    # - "hk"
+    # - "taiwan"
+    # - "singapore"
+    # - "tokyo"
   url: 'http://www.gstatic.com/generate_204'
   interval: 300
 
