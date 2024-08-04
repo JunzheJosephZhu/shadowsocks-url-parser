@@ -179,20 +179,20 @@ proxy-groups:
   type: select
   proxies:
     - "PROXY"
-    - "hk"
-    - "taiwan"
-    - "singapore"
-    - "tokyo"
+    # - "hk"
+    # - "taiwan"
+    # - "singapore"
+    # - "tokyo"
 
 # 大陆流媒体面向港澳台限定服务
 - name: "HKMTMedia"
   type: select
   proxies:
     - "DIRECT"
-    - "hk"
-    - "taiwan"
-    - "singapore"
-    - "tokyo"
+    # - "hk"
+    # - "taiwan"
+    # - "singapore"
+    # - "tokyo"
 
 # 规则
 rules:
