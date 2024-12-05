@@ -1,38 +1,31 @@
-# below is stuff added for tun mode
-dns:
-  enable: true
-  listen: 0.0.0.0:53
-  enhanced-mode: fake-ip
-  nameserver:
-    # - 114.114.114.114 # china telecom/china mobile
-    - 8.8.8.8 # google
-  fallback:
-    - 223.5.5.5 # aliyun
-    - 223.6.6.6 # aliyun
-    - 180.76.76.76 # baidu
-tun:
-  enable: true
-  stack: system # or gvisor
-  dns-hijack:
-    - 8.8.8.8:53
-    - tcp://8.8.8.8:53
-    - any:53
-    - tcp://any:53
-  auto-route: true # auto set global route
-  auto-detect-interface: true # conflict with interface-name
-# above is stuff added for tun mode
-port: 7890
-socks-port: 7891
-mixed-port: 7892
+#!MANAGED-CONFIG https://vd9rjmh8z49uq28pcdmn.wgetcloud.online/link/c89cc385-1e74-36dd-9246-2016c0cc3bd9?target=clash
+
+#---------------------------------------------------#
+## 上次更新于：2024-12-06 02:37:44
+#---------------------------------------------------#
+
+mixed-port: 7890
 allow-lan: true
+bind-address: "*"
 mode: rule
 log-level: info
-external-controller: '0.0.0.0:9090'
-clash-for-android:
-    append-system-dns: false
-profile:
-    tracing: true
-
+external-controller: "127.0.0.1:9090"
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver: [223.5.5.5, 119.29.29.29]
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  nameserver: ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"]
+  fallback:
+    [
+      "https://doh.dns.sb/dns-query",
+      "https://dns.cloudflare.com/dns-query",
+      "https://dns.twnic.tw/dns-query",
+      "tls://8.8.4.4:853",
+    ]
+  fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
   -
     name: '🇭🇰 套餐到期日期：2025-01-05'
@@ -290,23 +283,14 @@ proxies:
     password: 7673a826-58e0-39af-8e04-edcb5cfd7868
     sni: baidu.com
     skip-cert-verify: true
-  - {name: "vpn-us-trojan-Vm", type: vmess, server: www.glassdoor.com, port: 443, uuid: 26b8420d-88f6-45fd-ad91-3660c9adfdf3, udp: true, alterId: 0, cipher: none, tls: true, servername: futures-techno-charge-pdas.trycloudflare.com, skip-cert-verify: true, network: ws, ws-opts: {path: "/argox-vm", headers: {Host: futures-techno-charge-pdas.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol"}}
-  - {name: "vpn-us-trojan-Tr", type: trojan, server: www.glassdoor.com, port: 443, password: 26b8420d-88f6-45fd-ad91-3660c9adfdf3, udp: true, tls: true, servername: futures-techno-charge-pdas.trycloudflare.com, sni: futures-techno-charge-pdas.trycloudflare.com, skip-cert-verify: false, network: ws, ws-opts: { path: "/argox-tr", headers: {Host: futures-techno-charge-pdas.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol" } }
-  - {name: "vpn-us-trojan-Sh", type: ss, server: www.glassdoor.com, port: 443, cipher: chacha20-ietf-poly1305, password: 26b8420d-88f6-45fd-ad91-3660c9adfdf3, udp: true, plugin: v2ray-plugin, plugin-opts: { mode: websocket, host: futures-techno-charge-pdas.trycloudflare.com, path: "/argox-sh", tls: true, servername: futures-techno-charge-pdas.trycloudflare.com, skip-cert-verify: false, mux: false } }
-  - {name: "vpn-singapore-trojan-Vm", type: vmess, server: www.glassdoor.com, port: 443, uuid: 4752693a-2e9a-405d-b331-249e236b594f, udp: true, alterId: 0, cipher: none, tls: true, servername: ourselves-cs-niger-nightlife.trycloudflare.com, skip-cert-verify: true, network: ws, ws-opts: {path: "/argox-vm", headers: {Host: ourselves-cs-niger-nightlife.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol"}}
-  - {name: "vpn-singapore-trojan-Tr", type: trojan, server: www.glassdoor.com, port: 443, password: 4752693a-2e9a-405d-b331-249e236b594f, udp: true, tls: true, servername: ourselves-cs-niger-nightlife.trycloudflare.com, sni: ourselves-cs-niger-nightlife.trycloudflare.com, skip-cert-verify: false, network: ws, ws-opts: { path: "/argox-tr", headers: {Host: ourselves-cs-niger-nightlife.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol" } }
-  - {name: "vpn-singapore-trojan-Sh", type: ss, server: www.glassdoor.com, port: 443, cipher: chacha20-ietf-poly1305, password: 4752693a-2e9a-405d-b331-249e236b594f, udp: true, plugin: v2ray-plugin, plugin-opts: { mode: websocket, host: ourselves-cs-niger-nightlife.trycloudflare.com, path: "/argox-sh", tls: true, servername: ourselves-cs-niger-nightlife.trycloudflare.com, skip-cert-verify: false, mux: false } }
-  - {name: "vpn-seoul-trojan-Vm", type: vmess, server: www.glassdoor.com, port: 443, uuid: ad02a0e3-6530-44f9-bb6b-190a9aaf4564, udp: true, alterId: 0, cipher: none, tls: true, servername: meditation-routine-pack-jason.trycloudflare.com, skip-cert-verify: true, network: ws, ws-opts: {path: "/argox-vm", headers: {Host: meditation-routine-pack-jason.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol"}}
-  - {name: "vpn-seoul-trojan-Tr", type: trojan, server: www.glassdoor.com, port: 443, password: ad02a0e3-6530-44f9-bb6b-190a9aaf4564, udp: true, tls: true, servername: meditation-routine-pack-jason.trycloudflare.com, sni: meditation-routine-pack-jason.trycloudflare.com, skip-cert-verify: false, network: ws, ws-opts: { path: "/argox-tr", headers: {Host: meditation-routine-pack-jason.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol" } }
-  - {name: "vpn-seoul-trojan-Sh", type: ss, server: www.glassdoor.com, port: 443, cipher: chacha20-ietf-poly1305, password: ad02a0e3-6530-44f9-bb6b-190a9aaf4564, udp: true, plugin: v2ray-plugin, plugin-opts: { mode: websocket, host: meditation-routine-pack-jason.trycloudflare.com, path: "/argox-sh", tls: true, servername: meditation-routine-pack-jason.trycloudflare.com, skip-cert-verify: false, mux: false } }
-  - {name: "vpn-hk-trojan-Vm", type: vmess, server: www.whatismyip.com, port: 443, uuid: c9fc618d-b973-4109-96b1-204f687f014f, udp: true, alterId: 0, cipher: none, tls: true, servername: cj-ignore-du-sen.trycloudflare.com, skip-cert-verify: true, network: ws, ws-opts: {path: "/argox-vm", headers: {Host: cj-ignore-du-sen.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol"}}
-  - {name: "vpn-hk-trojan-Tr", type: trojan, server: www.whatismyip.com, port: 443, password: c9fc618d-b973-4109-96b1-204f687f014f, udp: true, tls: true, servername: cj-ignore-du-sen.trycloudflare.com, sni: cj-ignore-du-sen.trycloudflare.com, skip-cert-verify: false, network: ws, ws-opts: { path: "/argox-tr", headers: {Host: cj-ignore-du-sen.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol" } }
-  - {name: "vpn-hk-trojan-Sh", type: ss, server: www.whatismyip.com, port: 443, cipher: chacha20-ietf-poly1305, password: c9fc618d-b973-4109-96b1-204f687f014f, udp: true, plugin: v2ray-plugin, plugin-opts: { mode: websocket, host: cj-ignore-du-sen.trycloudflare.com, path: "/argox-sh", tls: true, servername: cj-ignore-du-sen.trycloudflare.com, skip-cert-verify: false, mux: false } }
 proxy-groups:
   -
     name: '🚀 节点选择'
     type: select
     proxies:
+      - '🇭🇰 套餐到期日期：2025-01-05'
+      - '🇭🇰 套餐流量剩余：180GB'
+      - '🇭🇰 订阅获取时间：2024-12-06 02:37'
       - '🇭🇰 香港 01'
       - '🇭🇰 香港 02'
       - '🇭🇰 香港 03'
