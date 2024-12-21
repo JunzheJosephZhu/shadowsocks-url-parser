@@ -290,6 +290,7 @@ proxies:
     password: 7673a826-58e0-39af-8e04-edcb5cfd7868
     sni: baidu.com
     skip-cert-verify: true
+  - {name: '🇺🇸 美国 101', type: ss, server: zenbbo.yangliq.com, port: 26001, cipher: aes-128-gcm, password: ce9a52f5-bc5c-4d04-a49d-3730014758ad, udp: true }
   - {name: "vpn-us-trojan-Vm", type: vmess, server: www.glassdoor.com, port: 443, uuid: 26b8420d-88f6-45fd-ad91-3660c9adfdf3, udp: true, alterId: 0, cipher: none, tls: true, servername: futures-techno-charge-pdas.trycloudflare.com, skip-cert-verify: true, network: ws, ws-opts: {path: "/argox-vm", headers: {Host: futures-techno-charge-pdas.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol"}}
   - {name: "vpn-us-trojan-Tr", type: trojan, server: www.glassdoor.com, port: 443, password: 26b8420d-88f6-45fd-ad91-3660c9adfdf3, udp: true, tls: true, servername: futures-techno-charge-pdas.trycloudflare.com, sni: futures-techno-charge-pdas.trycloudflare.com, skip-cert-verify: false, network: ws, ws-opts: { path: "/argox-tr", headers: {Host: futures-techno-charge-pdas.trycloudflare.com}, "max_early_data":2408, "early_data_header_name":"Sec-WebSocket-Protocol" } }
   - {name: "vpn-us-trojan-Sh", type: ss, server: www.glassdoor.com, port: 443, cipher: chacha20-ietf-poly1305, password: 26b8420d-88f6-45fd-ad91-3660c9adfdf3, udp: true, plugin: v2ray-plugin, plugin-opts: { mode: websocket, host: futures-techno-charge-pdas.trycloudflare.com, path: "/argox-sh", tls: true, servername: futures-techno-charge-pdas.trycloudflare.com, skip-cert-verify: false, mux: false } }
@@ -307,20 +308,23 @@ proxy-groups:
     name: '🚀 节点选择'
     type: select
     proxies:
-      - '🇭🇰 香港 01'
+      - '🇺🇲 美国 01'
       - '🇭🇰 香港 02'
+      - '🇸🇬 新加坡 01'
+      - '🇺🇲 美国 02'
+      - '🇺🇸 美国 101'
+      - "vpn-us-trojan-Vm"
+      - '🇨🇳 台湾 02'
+      - '🇭🇰 香港 01'
       - '🇭🇰 香港 03'
       - '🇨🇳 台湾 01'
       - '🇨🇳 台湾 02'
       - '🇨🇳 台湾 03'
-      - '🇸🇬 新加坡 01'
       - '🇸🇬 新加坡 02'
       - '🇸🇬 新加坡 03'
       - '🇯🇵 日本 01'
       - '🇯🇵 日本 02'
       - '🇯🇵 日本 03'
-      - '🇺🇲 美国 01'
-      - '🇺🇲 美国 02'
       - '🇺🇲 美国 03'
       - '🇷🇺 俄罗斯 01'
       - '🇨🇦 加拿大 01'
@@ -337,6 +341,7 @@ proxy-groups:
       - '🇰🇷 韩国 01'
       - '🇲🇾 马来西亚 01'
       - DIRECT
+
   -
     name: '🎯 全球直连'
     type: select
@@ -7551,6 +7556,8 @@ rules:
 - IP-CIDR,101.198.128.0/18,🎯 全球直连,no-resolve
 - IP-CIDR,101.198.192.0/19,🎯 全球直连,no-resolve
 - IP-CIDR,101.199.196.0/22,🎯 全球直连,no-resolve
+- IP-CIDR,34.0.0.0/8,🎯 全球直连,no-resolve
+- IP-CIDR,35.0.0.0/8,🎯 全球直连,no-resolve
 - PROCESS-NAME,aria2c.exe,🎯 全球直连
 - PROCESS-NAME,fdm.exe,🎯 全球直连
 - PROCESS-NAME,Folx.exe,🎯 全球直连

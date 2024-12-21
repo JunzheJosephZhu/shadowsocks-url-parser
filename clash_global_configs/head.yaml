@@ -1,3 +1,6 @@
+# Note: If using wgetcloud, in order to use gcp servers, add:
+# - IP-CIDR,34.0.0.0/8,🎯 全球直连,no-resolve
+# - IP-CIDR,35.0.0.0/8,🎯 全球直连,no-resolve
 # below is stuff added for tun mode
 dns:
   enable: true
